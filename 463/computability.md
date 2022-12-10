@@ -1,16 +1,3 @@
-### Question:
-
-- relation between reduction vs reduction technique vs mapping reduction vs A$\leq_{m}$B
-  - ch5.1 reduction from A~TM~, to prove HALT~TM~ is undecidable (p219)
-    - (reduction then conclude -> contradiction) check below
-    - reduction from A to B
-      - Assume B has decider
-      - Build A's decider that sloves A 
-  - ch5.3 example 5.24 made a TM F that compute the mapping function (p219)
-  - textbook
-    - example 5.26 saying reduction from E~TM~ which is same as reduction from A~TM~ are mapping reduction
-  - I can see there are big differece between Example 5.24 (p236) and (p219)
-
 ## Computability
 
 #### A$\leq_{m}$B $\iff$ $\overline{\text{B}}\leq_m\overline{\text{A}}$ 
@@ -58,19 +45,25 @@ Prove a language is undecidable by successfully using it's "decider" to decide a
 - Assume HALT~TM~ is decide by R and use this to construct S that decides A~TM~, but we know A~TM~ is undecidable -> $\nexists$ R that decides HALT~TM~
 - It's different reduction techniques from A~TM~$\leq_{m}$HALT
 
-#### Mapping Reducibility Ch5.3(p234).         (*many-one reducibility*)
+#### Mapping Reducibility Ch5.3(p234)         (*many-one reducibility*)
 
 Prove a language are **not Turing-recognizable** and applizations in **complexity theory**.
 
-Reduce problem A to B by using MR means $\exists$ **computable function** that converts instances of A to B
+Reduce problem A to B by using MR means
+
+- $\exists$ **computable function** that converts instances of A to B
+
+- a solution to B can be used to solve A (Page 300)
 
 >A is **mapping reducible** to B (A$\leq_{m}$B):
 >
 >- $\exists$ **computable function** f | w$\in$A $\leftrightarrow$ f(w)$\in$B
 >- f is called **reduction** from A to B
->- Computable function: 
->  - $\exists$ TM M, on every input w, halts with f(w) on its tape
->  - "The following machine F computes a reduction f"
+>
+>**Computable function**: 
+>
+>- $\exists$ TM M, on every input w, halts with f(w) on its tape
+>- "The following machine F computes a reduction f"
 
 
 
@@ -99,6 +92,8 @@ $A \leq_{m} B$ $\leftrightarrow$ $\overline{A} \leq_{m}\overline{B}$
 
 
 Classic mapping reduction format: Example 5.24 (p236)
+
+
 
 #### Descriptive/Kolmogorov Complexity: (section 6.4 lecture 5)
 
@@ -140,6 +135,8 @@ Theorem 6.29 Corollary 6.30 Theorem 6.31, 6.32
 - at least 2^n^ - 2^n-c+1^ + 1strings of length n are incompressible by c
 - let f be a computable ...
 - for some constant b ...9
+
+
 
 ## Languages
 
