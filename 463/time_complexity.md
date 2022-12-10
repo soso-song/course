@@ -76,7 +76,7 @@ Example: $\sqrt n = o(n)$;	$nlogn = o(n^2)$;	$n^2 = o(n^3)$
 
 
 
-#### TIME: Time Complexity Class (Def 7.7)
+#### TIME: (Deterministic) Time Complexity Class (Def 7.7)
 
 Let $t : \N \rightarrow \R^+$ be a function
 
@@ -92,16 +92,16 @@ Let $t : \N \rightarrow \R^+$ be a function
 
 
 
-#### P: Polynomial Time (Definition 7.12)
+#### P: (Deterministic) Polynomial Time (Definition 7.12)
 
-> **P** is the class of language that are decidable in polynomial time on a ***deterministic single-tape Turing machine***
+> **P** is the class of language that are decidable in polynomial time on a ***deterministic Turing machine***
 >
 > - $P = \bigcup_{k\in\N} TIME(n^k)$
 > - Or multitape since they are polytime equivalent
 
 Show L $\in$ P:
 
-1. Provide polytime algorithm
+- Provide polynomial time slover/decider
 
 Languages:
 
@@ -141,30 +141,58 @@ Show L $\in$ NP:
 4. Give a verifier for the certificate (deterministic TM in P)
 5. Show the verifier is polytime in the input size
 
+Show L $\in$ NP:
+
+- Provide polynomial time NTM slover/decider
+
 **Languages** (No P slover yet / not known to be in P):
 
-- HAMPATH = { <G, s, t> | G is a directed graph with a Hamiltonian path from s to t}
+- Ch7.5: most naturally occurring NP-problems are known either to be in P or to be NP-complete. 
+
+
+
+#### TMs Formalisms Matter
+
+Let $t(n) \geq n$ be a function
+
+##### Single-tape vs Multitape: Polynomial Difference
+
+- $\forall$ $t(n)$ time *multitape TM* has an equivalent $O(t^2(n))$ time *single-tape TM*
+
+##### Deterministic vs Nondeterministic: Exponential Difference
+
+- $\forall$ $t(n)$ time *nondeterministic single-tape TM* has an equivalent $2^{O(t(n))}$ time *deterministic single-tape TM*
 
 
 
 #### NP-COMPLETE (7.4)
 
-B $\in$ **NP-complete** : (Definition 7.34)
+> B $\in$ **NP-complete**:
+>
+> 1. B $\in$ NP
+> 2. $\forall$ A $\in$ NP, A $\leq_P$ B  Note: A is harder than B ?
+>
+> *NP-hard*: If B merely satisfies condition 2
 
-1. B $\in$ NP
-2. $\forall$ A $\in$ NP, A $\leq_P$ B  Note: A is harder than B ?
-   - Prove B is NP-hard by showing 3SAT $\leq_P$ B
-   - *NP-hard*: B could $\notin$ NP
+Show L $\in$ NP-COMPLETE:
 
-Hardest problems in NP:
+- Show B $\in$ NP
+- Prove B is NP-hard by showing 3SAT $\leq_P$ B
 
-- They have **same hardness**: If a polynomial time algorithm exists for any of these problems, all problems in NP would be polynomial time solvable.
+Show L $\in$ NP-COMPLETE:
 
-- B $\in$ NP-complete and B $\in$ P:  (Theorem 7.35)
-  - P = NP
-  - Example: SAT $\in$ P $\leftrightarrow$ P = NP (Theorem 7.27)
-- B $\in$ NP-complete and B $\leq_P$ C for C $\in$ NP (Theorem 7.36)
-  - C $\in$ NP-complete
+- Prove from lowest level: configuration
+- Example: SAT, 3SAT
+
+> Hardest problems in NP:
+>
+> - They have **same hardness**: If a polynomial time algorithm exists for any of these problems, all problems in NP would be polynomial time solvable.
+>
+> - B $\in$ NP-complete and B $\in$ P:  (Theorem 7.35)
+>   - P = NP
+>   - Example: SAT $\in$ P $\leftrightarrow$ P = NP (Theorem 7.27)
+> - B $\in$ NP-complete and B $\leq_P$ C for C $\in$ NP (Theorem 7.36)
+>   - C $\in$ NP-complete
 
 ##### Languages:
 
@@ -213,7 +241,7 @@ Hardest problems in NP:
     - Q: Do there exist k sets from S whose union is U?
     - U = {1,2,3,4,5,6,7}, S= {{1,3,7},{2,4,6},{4,5},{1},{1,2,6}}, k = 3 yes, k = 2 no
 
-- HAMPATH = whether the input graph contains a path from s to t that goes through every node exactly once.
+- HAMPATH = { <G, s, t> | G is a directed graph with a Hamiltonian path from s to t} = whether the input graph contains a path from s to t that goes through every node exactly once.
 
   - 3SAT $\leq_p$ HAMPATH
   - Complex, does this covered in lec?
@@ -250,17 +278,7 @@ Hardest problems in NP:
 
 
 
-#### TMs Formalisms Matter
 
-Let $t(n) \geq n$ be a function
-
-##### Single-tape vs Multitape: Polynomial Difference
-
-- $\forall$ $t(n)$ time *multitape TM* has an equivalent $O(t^2(n))$ time *single-tape TM*
-
-##### Deterministic vs Nondeterministic: Exponential Difference
-
-- $\forall$ $t(n)$ time *nondeterministic single-tape TM* has an equivalent $2^{O(t(n))}$ time *deterministic single-tape TM*
 
 #### Unary Notation ( input n vs loop n ):
 
@@ -300,7 +318,6 @@ Let $t(n) \geq n$ be a function
 In reasonable graph representations, the size of the representation is a polynomial in the number of nodes.
 
 - $m < n^2 \rightarrow O(mn) = O(n^3)$
-
 
 
 
