@@ -254,11 +254,15 @@ Show L $\in$ NP-COMPLETE:
   - S and it's subset are multisets: allow repetition of elements
   - Complex, does this covered in lec?
 
+- $\overline{TAUTOLOGY}$ such that TAUTOLOGY = { <$\phi$> | all assignments satisfy $\phi$ }
+
 
 
 #### co-NP: something (Page 297)
 
 > $L \in$ co-NP $\iff$ $\overline{L} \in $ NP
+>
+> {$\bar A$ | A $\in$ NP}
 
 **co-NP** contains the languages that are complements of languages in NP. 
 
